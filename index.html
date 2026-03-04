@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Calendar</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E📅%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/calendar.css">
+</head>
+<body>
+  <div class="calendar-container">
+    <header class="calendar-header">
+      <div class="header-content">
+        <h1 class="calendar-title">AI Calendar</h1>
+        <div class="calendar-nav">
+          <button class="nav-btn" id="prevWeek" aria-label="Previous week">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M13 5L7 10L13 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="date-range" id="dateRange">Loading...</div>
+          <button class="nav-btn" id="nextWeek" aria-label="Next week">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M7 5L13 10L7 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+        <button class="today-btn" id="todayBtn">Today</button>
+      </div>
+    </header>
+
+    <main class="calendar-main">
+      <div class="calendar-grid" id="calendarGrid">
+        <!-- Time labels column -->
+        <div class="time-column">
+          <div class="time-header"></div>
+          <div class="time-labels" id="timeLabels"></div>
+        </div>
+
+        <!-- Days columns -->
+        <div class="days-column">
+          <div class="day-headers" id="dayHeaders"></div>
+          <div class="day-cells" id="dayCells"></div>
+        </div>
+      </div>
+
+      <div class="events-container" id="eventsContainer"></div>
+    </main>
+
+    <footer class="calendar-footer">
+      <div class="footer-content">
+        <div class="legend">
+          <span class="legend-item">
+            <span class="legend-color lunch"></span>
+            <span>Lunch Time</span>
+          </span>
+          <span class="legend-item">
+            <span class="legend-color event"></span>
+            <span>Scheduled Interview</span>
+          </span>
+        </div>
+        <p class="footer-note">Available time slots for interviews</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="js/date-utils.js"></script>
+  <script src="js/ics-parser.js"></script>
+  <script src="js/calendar.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const calendar = new WeekView();
+      calendar.init();
+    });
+  </script>
+</body>
+</html>

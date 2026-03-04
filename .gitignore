@@ -1,11 +1,3 @@
-# Dependencies
-node_modules/
-dist/
-build/
-
-# Database
-data/
-
 # Environment
 .env
 .env.local
@@ -22,4 +14,3 @@ Thumbs.db
 
 # Logs
 *.log
-npm-debug.log*
